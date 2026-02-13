@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nosotros</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nuestra Historia</h1>
+            <p class="subtitle">Descubre cada pieza de nuestro amor</p>
+        </header>
+
+        <main>
+            <div id="puzzle-container" class="puzzle-container">
+                <!-- Las piezas se generarán aquí con JavaScript -->
+            </div>
+        </main>
+
+        <footer>
+            <button id="reset-btn" class="reset-btn">Reiniciar Historia</button>
+        </footer>
+    </div>
+
+    <!-- Modal para el poema -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div id="modal-piece-preview" class="modal-piece-preview"></div>
+                <h2 id="poem-title">Título del Poema</h2>
+                <div class="poem-text">
+                    <p id="stanza-1">Estrofa 1...</p>
+                    <p id="stanza-2">Estrofa 2...</p>
+                    <p id="stanza-3">Estrofa 3...</p>
+                </div>
+                <p id="poem-legend" class="legend">Leyenda...</p>
+                <button id="continue-btn" class="continue-btn">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

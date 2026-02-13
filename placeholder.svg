@@ -1,0 +1,18 @@
+<svg width="600" height="720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(20,20,20);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(100,20,40);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="720" fill="url(#grad1)" />
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="serif" font-size="40" fill="#d4af37">
+    Foto de Nosotros
+  </text>
+  <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-family="serif" font-size="20" fill="#ccc">
+    (Reemplazar con tu imagen)
+  </text>
+  <!-- Grid lines for visualization (optional) -->
+  <path d="M120 0 V720 M240 0 V720 M360 0 V720 M480 0 V720" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <path d="M0 120 H600 M0 240 H600 M0 360 H600 M0 480 H600 M0 600 H600" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+</svg>
