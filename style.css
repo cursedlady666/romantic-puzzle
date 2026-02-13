@@ -267,7 +267,7 @@ h1 {
     animation: fadeIn 2s ease-in-out;
 }
 
-.final-state.active {
+.final-state.visible {
     display: block;
 }
 
@@ -298,6 +298,14 @@ h1 {
     align-items: center;
     justify-content: center;
     z-index: 10;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    pointer-events: none;
+}
+
+.heart-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .heart {

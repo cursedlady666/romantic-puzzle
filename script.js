@@ -256,6 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const resetBtn = document.getElementById('reset-btn');
     const finalState = document.getElementById('final-state');
     const finalImage = document.getElementById('final-image');
+    const heartOverlay = document.querySelector('.heart-overlay');
 
     // Configuración del grid
     const cols = 5;
@@ -704,7 +705,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (solvedPieces.length === totalPieces) {
                 setTimeout(() => {
                     showFinalState();
-                }, 800);
+                }, 2000);
             }
         }
     }
@@ -725,6 +726,14 @@ document.addEventListener("DOMContentLoaded", () => {
         puzzleContainer.style.display = 'none';
         finalState.classList.remove('hidden');
         finalState.classList.add('visible');
+
+        // Asegurar que el corazón empiece oculto
+        heartOverlay.classList.remove('visible');
+
+        // Mostrar el corazón después de 3 segundos para dejar ver la foto
+        setTimeout(() => {
+            heartOverlay.classList.add('visible');
+        }, 3000);
     }
 
     resetBtn.addEventListener('click', () => {
@@ -735,6 +744,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Ocultar estado final si estaba visible
             finalState.classList.remove('visible');
             finalState.classList.add('hidden');
+            heartOverlay.classList.remove('visible');
             puzzleContainer.style.display = 'block';
 
             init();
