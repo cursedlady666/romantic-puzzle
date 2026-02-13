@@ -1,38 +1,247 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Lista de 30 Poemas.
-    // INSTRUCCIONES: Reemplaza el texto entre comillas con tus propios poemas.
+    // Lista de 30 Poemas proporcionados por el usuario
     const poems = [
         {
             id: 1,
-            title: "Poema 1: El Comienzo",
-            stanza1: "En este espacio escribes la primera estrofa,",
-            stanza2: "aquí va la segunda parte de tu sentir,",
-            stanza3: "y cierras con la tercera estrofa llena de amor.",
-            legend: "Lo que sentí al verte por primera vez."
+            title: "I. La Ciencia del Beso",
+            stanza1: "Llegaron tus manos, sabias del frío,\ncomo quien busca en la materia inerte\nun átomo de luz, y sin herirme\nvencieron mi muerte.",
+            stanza2: "No trajo tu llegada el vano alivio,\nni el bálsamo que cierra la herida;\nbesaste el mal, y al roce de tu boca...\n¡volvió la vida!",
+            stanza3: "Ya mi dolor no sabe cómo hablarme,\nperdió su nombre en la desierta calma;\nhoy, si me duele, solo tiene un eco:\n¡tu nombre... y mi alma!",
+            legend: "...mi médico..."
         },
         {
             id: 2,
-            title: "Poema 2: Tu Sonrisa",
-            stanza1: "Tu sonrisa ilumina mis días oscuros,",
-            stanza2: "es el faro que guía mi camino,",
-            stanza3: "sin ella, el mundo sería gris.",
-            legend: "Esa vez que fuimos al parque."
+            title: "II. El Instante Eterno",
+            stanza1: "No fue un día marcado en el tiempo,\nni cifra que se pierde en la mañana;\nfue el punto en que las almas, a lo lejos,\nhallaron su calma.",
+            stanza2: "El hado, fatigado de la espera,\ntrenzó en la sombra un lazo indivisible;\ny hoy la antigua soledad es un espectro...\n¡que cruzar no puede!",
+            stanza3: "Vaga fuera, cual niebla en el cristal,\najena a la luz tibia de mi historia;\nporque al cerrar la puerta, amor mío,\n¡tú eres mi memoria!",
+            legend: "...el trece de enero..."
         },
-        // Generaremos el resto automáticamente para no hacer este archivo gigante ahora,
-        // pero tú puedes copiar y pegar la estructura anterior hasta tener 30.
+        {
+            id: 3,
+            title: "III. La Dulce Fiebre",
+            stanza1: "Tú eres el vendaval que no rehúyo,\nla fuerza que al pasar todo lo arranca;\ndeshiciste el azar de mi destino...\n¡para darle un ancla!",
+            stanza2: "Si es fiebre de amor, si es el delirio\nque a la razón la turba y la oscurece,\nno pido, Skan, a Dios que me lo quite\nni que el mal se cese.",
+            stanza3: "Que si esto es enfermar, si es la locura\nperderse en la insondable desventura,\n¡maldiga el cielo la mano que intente\ndarme la cura!",
+            legend: "...dices que estoy enferma por amarte tanto..."
+        },
+        {
+            id: 4,
+            title: "IV. La Sentencia del Instante",
+            stanza1: "Miras con esa paz que al fondo llega,\ny el alma, sin ropaje, se adivina;\nsabes del fuego oculto antes que brote...\n¡y me dominas!",
+            stanza2: "No hay dictamen escrito en el papel,\nni cura para el mal que nos abraza;\nsolo una ley se impone en el destino:\nque el tiempo pasa.",
+            stanza3: "Y en esta brevedad de la existencia,\ndonde la sombra acecha nuestro grito,\namémonos, amor, cual si la sed...\n¡fuera infinito!",
+            legend: "...me conoces más que yo, me calmas..."
+        },
+        {
+            id: 5,
+            title: "V. La Ley del Astro",
+            stanza1: "Dicen que es paz amor, y que el sosiego\ncalma el latir del pecho que suspira;\n¡mentira! es un afán de siglos muertos...\n¡que hoy respira!",
+            stanza2: "Soy para ti cual la obediente ola\nque al astro blanco su vaivén entrega;\nuna ley invisible y misteriosa...\n¡a ti me lleva!",
+            stanza3: "Tuya por fuerza de un destino ciego,\nmía en tu ser, donde mi afán habita;\nque ya no soy quien fui, sino el reflejo...\n¡que en ti palpita!",
+            legend: "...no podía evitar enamorarme de ti..."
+        },
+        {
+            id: 6,
+            title: "VI. El Rito en la Sombra",
+            stanza1: "Cuando en la oscura noche tu voz vibra\ny leyendas de ayer al aire lanzas,\nmi espíritu rebelde, que no cree...\n¡se inclina y calla!",
+            stanza2: "No hay altar para mí, ni fe sagrada,\nni rezo que mi orgullo no desdiga;\nmas tu acento es el único misterio...\n¡que me mitiga!",
+            stanza3: "Los espectros que habitan mi memoria,\nal conjuro de tu voz profunda,\nya no me hieren; cual fantasmas leves...\n¡danzan su ronda!",
+            legend: "...amo que leas para mi..."
+        },
+        {
+            id: 7,
+            title: "VII. La Memoria de la Piel",
+            stanza1: "Entre la niebla cálida y difusa\nque al agua roba su calor secreto,\ndimos forma a un sentir que nadie sabe...\n¡solo el silencio!",
+            stanza2: "No hubo el rubor que cubre la mirada,\nni la sombra de duda en el semblante;\nque ya nos conocíamos, mi vida...\n¡desde el 'antes'!",
+            stanza3: "Antes de la luz y de la forma,\ncuando el mundo era un sueño no soñado,\nya mi espíritu andaba por el tiempo...\n¡a ti ligado!",
+            legend: "...el jacuzzi..."
+        },
+        {
+            id: 8,
+            title: "VIII. El Cautiverio",
+            stanza1: "Me nombras con ese acento que me rinde,\npalabra que es un lazo entre las flores;\ny yo, que soy el conejo en la espesura...\n¡busco tus redes!",
+            stanza2: "Me encierro en tu decir, jaula de oro,\ndonde el alma se entrega al dueño suyo;\nno pido libertad, que mi orgullo...\n¡muere en tu pulso!",
+            stanza3: "Voy hacia ti, cual la gama que busca\nla herida que la mate y le dé gloria;\nque morir en tus brazos es, bien mío...\n¡la única vida!",
+            legend: "...conejita..."
+        },
+        {
+            id: 9,
+            title: "IX. El Rito Sagrado",
+            stanza1: "Rompiste el sello de mi templo mudo,\nhiciste de mi carne un santuario\ndonde oficias con fuego y con delirio\ntu rito amargo.",
+            stanza2: "No dejes sombra ni rincón oculto\nque no lleve la huella de tu mano;\nque el mundo vea que me habita un dueño\nferoz y humano.",
+            stanza3: "Que digan al mirarme que he servido\na un dios que entre los hombres se detiene,\ny que en mi frente, con su hierro de oro,\n¡su marca tiene!",
+            legend: "...profáname..."
+        },
+        {
+            id: 10,
+            title: "X. La Heredad del Dueño",
+            stanza1: "No es cadena tu posesividad, mi cielo,\nes la sombra que el sauce me ofrece;\ndescanso en él del mundo que ignora\ncómo quererme.",
+            stanza2: "Me reclamas con ansia de antiguo,\ncomo el que halla su joya en la bruma;\nsoy el tesoro que el tiempo devuelve...\n¡a tu fortuna!",
+            stanza3: "¡Qué dulce es el yugo de tu mirada,\nqué bella la cárcel que tú me aseguras!\nTú eres el dueño que busca en mi alma...\n¡sus escrituras!",
+            legend: "...tu posesividad..."
+        },
+        {
+            id: 11,
+            title: "XI. El Delirio de la Idea",
+            stanza1: "Tú dominas mi mente con el arte\ncon que tu mano mi contorno traza;\ny en ese abismo de tu pensamiento...\n¡mi orgullo se deshace!",
+            stanza2: "Eres el solo afán que no domino,\nveneno de luz que el alma solicita;\nla droga que en la sombra de mi lecho...\n¡mi sangre resucita!",
+            stanza3: "Te pido a gritos cuando el alba asoma,\nbuscando en tu presencia mi alegría;\nque no hay mayor cordura que este vicio...\n¡de ser tuya y no mía!",
+            legend: "...la conexión mental..."
+        },
+        {
+            id: 12,
+            title: "XII. La Comunión de las Sombras",
+            stanza1: "No fue el sustento de la humilde mesa,\nni el humo que en el aire se perdía;\nfue tu mano, en su alquimia, la que puso...\n¡mi propia sed en la comida!",
+            stanza2: "Me nutres de silencios y de fuego,\nmanjar de luz que mi deseo nombra;\ny es tal mi hambre de ti, que en mi locura...\n¡bebería hasta tu sombra!",
+            stanza3: "Que en los restos que dejas en el suelo,\ndonde el sol tu perfil dibuja y miente,\nhallaría mi espíritu el consuelo...\n¡de poseerte eternamente!",
+            legend: "...me cuidas y me alimentas..."
+        },
+        {
+            id: 13,
+            title: "XIII. El Libro de la Suerte",
+            stanza1: "Aquel día de invierno, con letras de aire,\nfirmamos la suerte que el mundo no ve:\nser uno en el sueño, ser uno en la vida...\n¡sin saber por qué!",
+            stanza2: "Vivir a tu lado es cruzar mil abismos,\nhabitar las sombras que el alma prestó;\nmas esta historia que hoy nos envuelve...\n¡es la verdad de los dos!",
+            stanza3: "No hay página escrita, ni verso soñado\nque iguale el misterio de vernos aquí;\ntú eres el canto, yo soy la mirada...\n¡que se pierde en ti!",
+            legend: "...el 22 de enero..."
+        },
+        {
+            id: 14,
+            title: "XIV. El Altar de la Ficción",
+            stanza1: "Buscan su rastro sombras de la niebla\nen mundos que la pluma ayer trazó;\nmas son mis dedos los que al fin agitan...\n¡su propio temblor!",
+            stanza2: "Soberanos somos de un cielo de sueños,\ndueños del soplo que da vida al ser;\nmas yo me rindo ante el genio que habita\ndentro de tu piel.",
+            stanza3: "Tú eres el alma de la estrofa muda,\nyo el eco que se rinde en tu rincón;\nmi fe se postra ante el altar que forma...\n¡tu propia invención!",
+            legend: "...soy devota de tu creación..."
+        },
+        {
+            id: 15,
+            title: "XV. El Libro sin Fin",
+            stanza1: "Me abriste el laberinto de tu mente,\ndonde la luz y el genio se confunden;\ngracias por ser la mano que en la sombra...\n¡la mía sostiene!",
+            stanza2: "No quiero el final que la fábula dicta,\nni el sosiego del cuento que se acaba;\nprefiero el borrón, el grito, el ansia...\n¡y la página blanca!",
+            stanza3: "Sea nuestra historia un verso que no muere,\nun capítulo eterno y sin medida;\nque no busco el reposo, sino el fuego...\n¡de vivir en tu vida!",
+            legend: "...gracias por elegirme como compañera de letras..."
+        },
+        {
+            id: 16,
+            title: "XVI. El Héroe de Verdad",
+            stanza1: "Ardan los libros de los siglos muertos,\nfalsos héroes de seda y de leyenda;\nningún acero de papel me ha dado...\n¡lo que tú me entregas!",
+            stanza2: "Eres mi sombra fiel, mi genio oscuro,\nel verso que al azar vino a mi mano;\nviniste a dar sentido a la tragedia...\n¡de mi pecho amargo!",
+            stanza3: "Tú eres la rima que faltaba al mundo,\nel trazo de luz que corrigió mi vida;\nno quiero más leyendas que tu pecho...\ndonde el mío se abriga!",
+            legend: "...eres mi héroe..."
+        },
+        {
+            id: 17,
+            title: "XVII. La Trama de la Vida",
+            stanza1: "Si el mundo fuera una página desierta,\ncon tu nombre los bordes llenaría,\nhasta que ni un espacio se encontrara\n¡donde el vacío cupiera!",
+            stanza2: "No se escribe este azar con la palabra,\nes la sangre quien dicta su medida;\nes un sudor de fuego que nos quema\n¡y nos da la caricia!",
+            stanza3: "En cada surco que los dos abrimos,\nhay un llanto de gozo y de esperanza;\namarte es la leyenda más hermosa\n¡que el destino trazara!",
+            legend: "...solo tu nombre llena el vacío..."
+        },
+        {
+            id: 18,
+            title: "XVIII. El Signo en la Mano",
+            stanza1: "Leíste en las huellas de mi mano\nel secreto que el tiempo escondía;\ny enredaste tu nombre con el mío...\n¡para ser vida!",
+            stanza2: "Yo, que de astros y agüeros dudaba,\nalzo ahora al cielo mi plegaria;\nque mi mañana empiece cada día...\n¡con tu mirada!",
+            stanza3: "Tú eres el signo de mi suerte nueva,\nla luz que guía mi planta cansada;\nno quiero más futuro que el que habita...\nen tu palabra!",
+            legend: "...mi futuro es tuyo..."
+        },
+        {
+            id: 19,
+            title: "XIX. El Latido en el Centro",
+            stanza1: "Duerme una sombra leve entre nosotros,\npequeño ser de piel y de silencio;\ntestigo mudo de este amor que ruge...\n¡o es solo un sueño!",
+            stanza2: "En lo pequeño, en la existencia humilde,\ndonde la luz sin ruido se aposenta,\nhallo la gloria que en el mundo falta...\n¡y en ti se encuentra!",
+            stanza3: "No pido el brillo ni la voz del aire,\nni la grandeza que el orgullo ostenta;\nme basta el pulso de tu pecho, y esta...\npaz que nos rodea!",
+            legend: "...skan jr. nuestro hurón..."
+        },
+        {
+            id: 20,
+            title: "XX. El Fuego Bajo el Mármol",
+            stanza1: "Amo ese gesto de esquivez amarga,\nesa coraza de cristal e invierno;\npues sé que bajo el mármol de tu pecho\n¡un volcán se desata!",
+            stanza2: "Es tu frialdad el velo de tu alma,\nque en el silencio por mi bien se agita;\nun fuego que se oculta de los hombres...\nbuscando mi sonrisa!",
+            stanza3: "No me asusta la sombra de tu ceño,\nni el hielo que en tus ojos se adivina;\nque el rayo solo nace de la nube...\noscura y pensativa!",
+            legend: "...mi bello arisco..."
+        },
+        {
+            id: 21,
+            title: "XXI. El Latido Fugitivo",
+            stanza1: "No busco el juramento de los siglos,\nni el tiempo que no tiene fin ni orilla;\ndame el soplo de vida de este instante...\n¡y el otro que se arrima!",
+            stanza2: "Es un abismo lo que en ti se encierra,\nun laberinto de luz y de sombra;\nno bastará mi paso para hallarte...\n¡si un mundo en ti se asoma!",
+            stanza3: "Vagar quiero por todos tus silencios,\nbebiendo el aire que tu pecho agita;\nque cada pliegue es un misterio nuevo...\nque en mi alma se anida!",
+            legend: "...temo que el tiempo se nos acabe..."
+        },
+        {
+            id: 22,
+            title: "XXII. El Refugio de la Sombra",
+            stanza1: "Cuando en mi temblor posas tu mirada\ny velas mi pensamiento que languidece,\nel orbe en su vaivén parece quieto...\n¡por darme tu consuelo!",
+            stanza2: "Eres el murmullo que me calma el alma\ncuando mi lámpara apagarse quiere;\ny mi salud es el hallarte cerca...\ny el ver que tú me quieres!",
+            stanza3: "No hay más refugio que tu luz serena,\nni más amparo que el que tú me ofreces;\nque este mundo es un mar de vanas sombras...\ny tú mi peña recia!",
+            legend: "...tu forma de cuidar mis inseguridades..."
+        },
+        {
+            id: 23,
+            title: "XXIII. El Milagro de la Carne",
+            stanza1: "Pensé que eras delirio de mi fiebre,\nforma creada por mi propia mente;\nque en este siglo de cristal y fango...\n¡no eras posible!",
+            stanza2: "Mas tu mano me arranca de la sombra,\ntu carne al tacto mi dudar deshace;\nque el milagro respira entre mis sábanas...\ny al fin se hace!",
+            stanza3: "Ya no te busco en mundos de ideales,\nni en el vapor de la visión extraña;\nporque el cielo bajó hasta nuestro lecho...\ny en él descansa!",
+            legend: "...aún no puedo creer que existas..."
+        },
+        {
+            id: 24,
+            title: "XXIV. El Verbo del Silencio",
+            stanza1: "Dice más tu callar que el grito vano\nde la turba que el mundo va poblando;\nen tu mudez escucho las verdades...\n¡que andaba esperando!",
+            stanza2: "Eres descanso de la lid amarga\ny eres la lid que el alma solicita;\npaz de mi sombra y guerra de mi sangre...\n¡que me resucita!",
+            stanza3: "No pido tregua al brazo que me rinde,\nni busco el puerto donde el viento calla;\nque es mi mayor victoria, amado mío...\nlibrar tu batalla!",
+            legend: "...me acompañas incluso en tu silencio..."
+        },
+        {
+            id: 25,
+            title: "XXV. La Fiesta del Aliento",
+            stanza1: "¿Qué importa el día que el mundo señala\ncon fiestas de paso y flores de arena?\nSi somos dos almas que tras la tormenta...\n¡hallaron su orilla!",
+            stanza2: "Cualquier aurora es sagrada en mi pecho,\nsi el aire que exhalas mi vida acompaña;\nmi pulso se ajusta al compás de tu sueño...\nbajo la mañana!",
+            stanza3: "No busco en el tiempo razones de gloria,\nni fechas marcadas con letras de oro;\nmi fiesta es oír tu vivir junto al mío...\ny es ese mi tesoro!",
+            legend: "...feliz san valentín..."
+        },
+        {
+            id: 26,
+            title: "XXVI. El Pecado del Tiempo",
+            stanza1: "Que el tiempo nos perdone la osadía\nde querer detener su paso alado,\npor robarle a la sombra esas horas...\njunto a tu costado!",
+            stanza2: "En el cerco de fuego de tus brazos,\nel metal del reloj guarda silencio;\nse deshace la cifra y el mañana...\n¡se vuelve un misterio!",
+            stanza3: "No hay pasado ni luz en la memoria,\nsolo existe el presente en que me nombras;\ny el universo es solo tu boca...\ncontra mi boca!",
+            legend: "...mis madrugadas son tuyas..."
+        },
+        {
+            id: 27,
+            title: "XXVII. El Nudo de la Eternidad",
+            stanza1: "«No me sueltes jamás», fue tu mandato,\ny yo estreché mi vida con tu vida\nen nudo que no espera ni desea...\n¡la despedida!",
+            stanza2: "Mía es la sombra que mi planta deja,\nmas tuya es la raíz de mi existencia;\ndesde el cabello al aire que respiro...\ntienes mi esencia!",
+            stanza3: "Hoy y en los siglos que el azar nos guarde,\nen mundos que la luz aún no recorre,\nseguiré siendo el alma que te busca...\ny que te oye!",
+            legend: "...no me sueltes nunca..."
+        },
+        {
+            id: 28,
+            title: "XXVIII. El Verbo y la Vida",
+            stanza1: "Amo con esa fe de las leyendas,\nque al tiempo, al olvido y al mal vence;\nla que en las páginas de un libro viejo...\n¡siempre florece!",
+            stanza2: "Mas amo más el rito de tu mano,\nel aroma del alba que nos guía;\nno quiero más leyendas que tu pecho...\ndonde el mío se abriga!",
+            stanza3: "Que no hay pasión escrita con más fuerza\nque la que el labio en el silencio sella;\nprefiero tu vivir, a la memoria...\nde una epopeya!",
+            legend: "...nos amo como escritores..."
+        },
+        {
+            id: 29,
+            title: "XXIX. El Origen y el Fin",
+            stanza1: "Tú eres la voz que mi decir inicia,\ny el mudo fin que mi palabra aguarda;\nel alfabeto en que mi suerte escribe...\n¡su ley sagrada!",
+            stanza2: "Fuera de ti, no hay luz, ni voz, ni huella,\nsolo el vacío que el olvido abraza;\nmas si te acercas, hasta el mismo abismo...\n¡se vuelve patria!",
+            stanza3: "Eres el centro donde el todo nace,\nel horizonte donde el ser descansa;\nporque sin ti, bien mío, hasta la gloria...\n¡sería la nada!",
+            legend: "...eres mi todo, te amo..."
+        },
+        {
+            id: 30,
+            title: "XXX. El Norte del Alma",
+            stanza1: "Si un siglo de existencia me otorgaran,\nun siglo por hallarte vagaría;\nque ya no sabe mi alma por el mundo...\nir sin la tuya!",
+            stanza2: "Eres el norte de mi planta incierta,\nla luz que mi camino solicita;\nsin el imán que de tu pecho nace...\ntodo es fatiga!",
+            stanza3: "¡Feliz el mes, la vida y el destino!\n¡Feliz la eternidad que nos aguarda!\nMi amor, mi anhelo, mi refugio, Skan...\n¡mi fe sagrada!",
+            legend: "...conocerte ha cambiado mi vida por completo..."
+        }
     ];
-
-    // Función para completar los 30 poemas (SOLO PARA PRUEBAS)
-    for (let i = 3; i <= 30; i++) {
-        poems.push({
-            id: i,
-            title: `Poema ${i}: Momentos`,
-            stanza1: `Esta es la estrofa 1 del poema número ${i}.`,
-            stanza2: `Aquí escribes más cosas bonitas para el poema ${i}.`,
-            stanza3: `Y terminas con mucho amor en el poema ${i}.`,
-            legend: `Recuerdo número ${i} de nuestra historia.`
-        });
-    }
 
     const puzzleContainer = document.getElementById('puzzle-container');
     const modal = document.getElementById('modal');
