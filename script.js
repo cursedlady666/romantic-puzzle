@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeModal = document.querySelector('.close-modal');
     const continueBtn = document.getElementById('continue-btn');
     const resetBtn = document.getElementById('reset-btn');
+    const finalState = document.getElementById('final-state');
+    const finalImage = document.getElementById('final-image');
 
     // Configuración del grid
     const cols = 5;
@@ -61,7 +63,17 @@ document.addEventListener("DOMContentLoaded", () => {
     init();
 
     function init() {
+        // Resetear visualización
+        finalState.classList.remove('visible');
+        finalState.classList.add('hidden');
+        puzzleContainer.style.display = 'block';
+
         createPuzzlePieces();
+
+        // Verificar si ya está resuelto al cargar
+        if (solvedPieces.length === totalPieces) {
+             showFinalState();
+        }
     }
 
     function createPuzzlePieces() {
@@ -407,17 +419,15 @@ document.addEventListener("DOMContentLoaded", () => {
         piece.style.top = piece.dataset.correctTop;
         piece.style.left = piece.dataset.correctLeft;
         piece.style.transform = 'rotate(0deg)';
-        piece.style.zIndex = '1';
+        // z-index y pointer-events se manejan en CSS con la clase .solved
         piece.style.opacity = "1";
-        // piece.style.border = "none"; // Border is handled by clip-path mostly
         piece.style.cursor = "default";
         piece.style.boxShadow = "none";
-        // Ensure it's on top of background but below hovering
     }
 
     function handlePieceClick(piece, id) {
+        // Si la pieza ya está resuelta, no hacer nada (seguridad adicional al pointer-events:none del CSS)
         if (solvedPieces.includes(id)) {
-            openModal(id);
             return;
         }
 
@@ -484,16 +494,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (solvedPieces.length === totalPieces) {
                 setTimeout(() => {
-                    alert("¡Felicidades! Has completado nuestra historia. Te amo.");
-                }, 500);
+                    showFinalState();
+                }, 800);
             }
         }
+    }
+
+    function showFinalState() {
+        // Obtener la imagen de una pieza para usarla en el fondo final
+        // Esto asegura que si el usuario cambió la foto, se use esa misma.
+        let bgImage = "url('placeholder.svg')";
+        const examplePiece = document.querySelector('.puzzle-piece');
+
+        if (examplePiece) {
+            bgImage = examplePiece.style.backgroundImage;
+        }
+
+        finalImage.style.backgroundImage = bgImage;
+
+        // Transición
+        puzzleContainer.style.display = 'none';
+        finalState.classList.remove('hidden');
+        finalState.classList.add('visible');
     }
 
     resetBtn.addEventListener('click', () => {
         if(confirm("¿Quieres reiniciar toda la historia? Las piezas volverán a desordenarse.")) {
             localStorage.removeItem('solvedPieces');
             solvedPieces = [];
+
+            // Ocultar estado final si estaba visible
+            finalState.classList.remove('visible');
+            finalState.classList.add('hidden');
+            puzzleContainer.style.display = 'block';
+
             init();
         }
     });
